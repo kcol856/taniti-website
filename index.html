@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan your next island getaway to the tropical island of Taniti. Find information about lodging, food, transportation, and fun things to do on the island.">
+  <title>The Island of Taniti | Plan your next Island Getaway</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+  
+  <style>
+
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: rgb(212, 202, 173);
+    }
+
+    /* Full-width header spanning top of page */
+    .navbar {
+      width: 100%;
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    /* Centered content wrapper */
+    .nav-container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      gap: 1.5rem;
+    }
+
+    /* Left: Logo */
+    .nav-logo a {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-decoration: none;
+      white-space: nowrap;
+      font-family: 'Agbalumo', sans-serif;
+    }
+
+    /* Center: Links */
+    /* Center: Links */
+    .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    }
+
+    .nav-links a {
+    position: relative;          /* Required for positioning the pseudo-element*/
+    color: #e0e0e0;
+    text-decoration: none;        /* Remove default static underline */
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding-bottom: 4px;         /* Space between text and underline */
+    transition: color 0.3s ease;
+    }
+
+    /* Pseudo-element for the animated underline */
+    .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;                 /* Line thickness */
+    background-color: #00aaff;   /* Line color */
+    
+    /* Initial state: scaled to 0 width, anchored to the left */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 100ms ease-in-out;
+    }
+
+    /* Hover state: scale to full width */
+    .nav-links a:hover::after {
+    transform: scaleX(1);
+    }
+
+    .nav-links a:hover {
+    color: #ffffff;
+    }
+
+    /* Right: Search Bar */
+    .nav-search form {
+      display: flex;
+      align-items: center;
+    }
+
+    
+
+    .nav-search input[type="text"] {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #444;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      background-color: #2a2a2a;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .nav-search input[type="text"]::placeholder {
+      color: #888;
+    }
+
+    .nav-search button {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #00aaff;
+      background-color: #00aaff;
+      color: #ffffff;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .nav-search button:hover {
+      background-color: #0088cc;
+    }
+
+
+    .nav-search a::before{
+        width: 0;
+    }
+
+
+
+    .island-picture {
+        width: 100%;
+        height: 625px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .island-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    .picture-content {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+
+    .picture-content h1 {
+        font-size: 60px;
+        margin-bottom: 10px;
+        font-family: 'Agbalumo', sans-serif;
+    }
+
+    .picture-content p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .booking-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #00aaff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .booking-button:hover {
+        background-color: #0088cc;
+    }
+
+    .island-overview {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        margin-left: 25%;
+        font-size: 25px; 
+        margin-top: 50px;
+        margin-bottom: 150px;
+        
+    }
+
+    .island-overview p {
+      font-size: 25px;
+      width: 1300px;
+      margin-top: 20px;
+
+    }
+
+    .island-overview h2 {
+      font-family: 'Agbalumo', sans-serif;
+    }
+
+    .overview-content {
+      text-align: center;
+        
+    }
+
+
+    .faq-content {
+      display: flex;
+      align-items: center;
+      margin-left: 15%;
+    }
+
+    .faq-content h1 {
+      font-size: 50px;
+      font-family: 'Agbalumo', sans-serif;
+    }
+
+    .faq-bulletpoints {
+      width: 750px;
+      margin-left: 400px;
+      font-size: 25px;
+      line-height: 50px;
+    }
+
+
+    /* Container holding the 3 cards */
+    .attractions {
+    
+        display: flex;
+
+        flex-direction: row;
+        justify-content: space-between; /* Spaces cards evenly */
+        gap: 1.5rem;                    /* Adds spacing between boxes */
+        padding: 2rem;
+        background-color: lightblue;       /* Your section background */
+        box-sizing: border-box;
+    }
+
+    /* Individual card / background box */
+    .attraction-card {
+        flex: 1;                        /* Forces all 3 cards to be equal width */
+        background-color: #ffffff;      /* Individual box background color */
+        border-radius: 8px;             /* Rounded corners */
+        padding: 1.25rem;               /* Inner padding around content */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Image formatting inside each box */
+    .attraction-card img {
+        width: 100%;                    /* Responsive image width */
+        height: 200px;                  /* Consistent image height */
+        object-fit: cover;              /* Prevents image distortion */
+        border-radius: 6px;
+        margin-bottom: 1rem;
+    }
+
+
+    .footer {
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 20px 0;
+        margin-top: 40px;
+    }
+
+    .footer nav {
+        width: 100%;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-links li {
+        text-align: center;
+    }
+
+    .footer-links a {
+        position: relative;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding-bottom: 4px;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #00aaff;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 100ms ease-in-out;
+    }
+
+    .footer-links a:hover::after {
+        transform: scaleX(1);
+    }
+
+    .footer-links a:hover {
+        color: #ffffff;
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      
+      <!-- Left: Logo -->
+      <div class="nav-logo">
+        <a href="index.html">The Island of Taniti</a>
+      </div>
+
+      <!-- Center: Navigation Links -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="food.html">Food</a></li>
+          <li><a href="lodging.html">Lodging</a></li>
+          <li><a href="transportation.html">Transportation</a></li>
+          <li><a href="fun.html">Fun Things to Do</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Search Bar -->
+      <div class="nav-search">
+        <form action="/search" method="GET">
+          <input type="text" name="q" placeholder="Search..." aria-label="Search">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
+    </div>
+  </header>
+
+
+  <section class="island-picture">
+    <img src="pexels-asadphoto-1268860.jpg">
+    <div class="picture-content">
+      <h1>Welcome to Taniti</h1>
+      <p>Plan your island getaway</p>
+      <a href="booking.html" class="booking-button">Book Now</a>
+    </div>
+  </section>
+
+
+  <section class="island-overview">
+    <div class="overview-content">
+      <h2>About Taniti</h2>
+      <p>Taniti is a small, tropical island in the Pacific. While the island has an area of less than 500 square miles, the terrain is varied and includes both sandy and rocky beaches, a small but safe harbor, lush tropical rainforests, and a mountainous interior that includes a small, active volcano. Taniti has an indigenous population of about 20,000. Until a recent increase in tourism, most the Tanitian economy was dominated by fishing or agriculture.
+
+      </p>
+    </div>
+  </section>
+
+
+
+  <section class="faq-content">
+    <h1>
+      Frequently<br> 
+      Asked<br> 
+      Questions
+    </h1>
+    
+    
+    
+    <div class="faq-bulletpoints">
+      <p>
+      &#x2022; Power outlets are 120 volts (the same as in the United States). <br>
+      &#x2022; Alcohol is not allowed to be served or sold between the hours of midnight and 9:00 a.m. 
+      The drinking age on Taniti is 18 and the drinking age is not strictly enforced.<br>
+      &#x2022; Many younger Tanitians speak fluent English. Very little English is spoken in rural areas, especially by the older residents.<br>
+      &#x2022; There is one hospital and several clinics. The hospital has many multilingual employees.<br>
+      &#x2022; Violent crime is very rare on Taniti, but as tourism increases, there are more reports of pickpocketing and other petty crimes. <br>
+      &#x2022; Taniti enjoys a large number of national holidays, and many tourist attractions and restaurants will be closed on holidays, so visitors should plan accordingly.<br>
+      &#x2022; Taniti uses the U.S. dollar as its currency, but many businesses will also accept euros and yen. Several banks facilitate currency exchange, and many businesses accept major credit cards.
+      </p>
+    </div>
+    
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer">
+      <nav>
+          <ul class="footer-links">
+              <li><a href="island-home.html">Home</a></li>
+              <li><a href="food.html">Food</a></li>
+              <li><a href="lodging.html">Lodging</a></li>
+              <li><a href="transportation.html">Transportation</a></li>
+              <li><a href="fun.html">Fun Things to Do</a></li>
+          </ul>
+      </nav>
+  </footer>
+
+
+
+
+
+
+</body>
+</html>
